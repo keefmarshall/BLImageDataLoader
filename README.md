@@ -5,8 +5,8 @@ Scripts for managing the British Library image data
 
 See: `https://github.com/BL-Labs/imagedirectory`
 
-DataLoader.rb
--------------
+MongoLoader.rb
+--------------
 
 Ruby script for loading data into MongoDB.
 
@@ -20,8 +20,12 @@ optionally for performance:
 
     gem install bson_ext 
 
-You'll need to tweak the settings at the bottom of the file to match your
-environment - mongo settings, image directory etc..
+You'll need to tweak the Mongo settings near the top of the file to match your
+local environment.
+
+To run the script, you need to pass in the directory containing the tsv files:
+
+    ruby MongoLoader.rb <path_to_tsv_files>
 
 ### Metrics:
 - It takes about 6 minutes to run on my core i7 iMac (2009)
