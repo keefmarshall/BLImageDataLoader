@@ -61,5 +61,6 @@ To run the script, you need to pass in the directory containing the tsv files:
 
 ### Metrics:
 - It takes a lot longer to run than the MongoDB one
-- This is a lot of data, you might need to boost your elasticsearch heap
+- This is a lot of data, you might need to boost your elasticsearch heap (I did!) - if 
+you get a timeout error, this is likely to be the problem.
 
