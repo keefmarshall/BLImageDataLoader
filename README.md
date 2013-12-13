@@ -5,6 +5,8 @@ Scripts for managing the British Library image data
 
 See: `https://github.com/BL-Labs/imagedirectory`
 
+I'm new to Ruby - comments on coding style are welcome.
+
 MongoLoader.rb
 --------------
 
