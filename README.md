@@ -57,8 +57,9 @@ You'll need the elasticsearch driver for Ruby:
     
 To run the script, you need to pass in the directory containing the tsv files:
 
-    ruby MongoLoader.rb <path_to_tsv_files>
+    ruby ELasticLoader.rb <path_to_tsv_files>
 
 ### Metrics:
 - It takes a lot longer to run than the MongoDB one
+- This is a lot of data, you might need to boost your elasticsearch heap
 
