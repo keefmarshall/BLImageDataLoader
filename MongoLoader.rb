@@ -6,8 +6,8 @@
 
 Encoding.default_internal = 'UTF-8'
 
-require_relative 'TsvToMongo'
-require_relative 'BLImageFileProcessor'
+require_relative 'tsv/TsvToMongo'
+require_relative 'bl/BLImageFileProcessor'
 
 # configuration goes here - change these to match your local system:
 mongo_opts =  {

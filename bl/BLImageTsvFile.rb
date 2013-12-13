@@ -1,7 +1,7 @@
 # Class specifically for reading British Library image metadata files
 # see: https://github.com/BL-Labs/imagedirectory
 
-require_relative 'TsvFile'
+require_relative '../tsv/TsvFile'
 
 class BLImageTsvFile < TsvFile
   attr_accessor :type
