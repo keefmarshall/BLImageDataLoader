@@ -7,6 +7,12 @@ See: `https://github.com/BL-Labs/imagedirectory`
 
 I'm new to Ruby - comments on coding style are welcome.
 
+Loaders are currently supplied for:
+
+- [MongoDB](#mongodb)
+- [Elasticsearch](#elasticsearch)
+
+<a name='mongodb'></a>
 MongoLoader.rb
 --------------
 
@@ -35,3 +41,24 @@ To run the script, you need to pass in the directory containing the tsv files:
 - The MongoDB database ends up around 2Gb in size so make sure you have space
 - I ended up with 1019206 total items in the collection
 - There are 31183 unique book identifiers
+
+<a name='elasticsearch'></a>
+ElasticLoader.rb
+----------------
+
+Ruby script for loading data into Elasticsearch
+
+You'll need a local installation of Elasticsearch - currently doesn't support pointing
+at a remote.
+
+You'll need the elasticsearch driver for Ruby:
+
+    gem install elasticsearch
+    
+To run the script, you need to pass in the directory containing the tsv files:
+
+    ruby MongoLoader.rb <path_to_tsv_files>
+
+### Metrics:
+- It takes a lot longer to run than the MongoDB one
+
