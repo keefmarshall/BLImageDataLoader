@@ -34,4 +34,4 @@ To run the script, you need to pass in the directory containing the tsv files:
 - it gets slower towards the end because the files are bigger
 - The MongoDB database ends up around 2Gb in size so make sure you have space
 - I ended up with 1019206 total items in the collection
-
+- There are 31183 unique book identifiers
