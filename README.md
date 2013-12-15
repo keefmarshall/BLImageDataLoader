@@ -63,4 +63,6 @@ To run the script, you need to pass in the directory containing the tsv files:
 - It takes a lot longer to run than the MongoDB one - around 40 minutes on my Mac.
 - This is a lot of data, you might need to boost your elasticsearch heap (I did!) - if 
 you get a timeout error, this is likely to be the problem.
+- strangely I've ended up with 1017305 entries in Elasticsearch.. must have missed some.
+
 
