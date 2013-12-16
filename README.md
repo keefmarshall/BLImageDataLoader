@@ -3,7 +3,9 @@ BLImageDataLoader
 
 Scripts for managing the British Library image data
 
-See: `https://github.com/BL-Labs/imagedirectory`
+See: [the Briitsh Library repo](https://github.com/BL-Labs/imagedirectory) for the data, and 
+[my blog post](http://keefcode.wordpress.com/2013/12/16/british-library-commons-images/)
+for a bit more detail.
 
 I'm new to Ruby - comments on coding style are welcome.
 
