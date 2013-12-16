@@ -14,7 +14,7 @@ db.pubplaces.find().sort({"total":-1}).limit(26, function (err, places) {
 	{
 		if (places[i].pubplace != null)
 		{
-			console.log(places[i].pubplace + ',' + places[i].total);
+			console.log('"' + places[i].pubplace + '",' + places[i].total);
 		}
 	}
 	
