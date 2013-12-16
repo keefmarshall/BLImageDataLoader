@@ -37,4 +37,16 @@ If you want just a few fields, e.g. just title, in the above query, do this:
  
      db.areas.find().sort({'area': 1}).limit(5).map(function(area) { return db.images.findOne({'_id': area._id}, {'title':1}) })
  
+ Place of Publication
+ --------------------
  
+ I created a collection with the unique publication place entries, along with totals:
+ 
+    db.pubplaces.insert(db.images.group({ key: {"pubplace": 1}, reduce: function(curr, result){ result.total++ }, initial: { total: 0 } }))
+    
+ .. unfortunately this data is very inconsistent, and in some places needs a lot of work.
+ Still, if we take the most common places it gives us something to work with, so:
+ 
+    db.pubplaces.find().sort({"total":-1}).limit(20)
+    
+.. gives us the top 20 publication places (one of which is "null", or unknown)
