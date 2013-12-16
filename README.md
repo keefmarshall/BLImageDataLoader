@@ -12,6 +12,26 @@ Loaders are currently supplied for:
 - [MongoDB](#mongodb)
 - [Elasticsearch](#elasticsearch)
 
+UPDATE: 15th Dec 2013:
+-----------------
+
+I've changed  the scripts to do some rudimentary typing, so most numbers (pubyear, sizes)
+get loaded as integers rather than strings. This makes it possible to do range queries.
+
+Unfortunately if you've already loaded the data into Elasticsearch this means
+you'll have to delete your index and start again, because it sets the types automatically
+and there's no way to change them once set.
+
+If you used my default index settings you can do this as follows:
+
+    curl -XDELETE http://localhost:9200/bldata
+
+.. then re-run the laoder.
+
+Normally, re-running the loaders is non-invasive and should just apply any updates from
+the source files - hopefully this is a once-off.
+
+
 <a name='mongodb'></a>
 MongoLoader.rb
 --------------
@@ -36,9 +56,10 @@ To run the script, you need to pass in the directory containing the tsv files:
     ruby MongoLoader.rb <path_to_tsv_files>
 
 ### Metrics:
-- It takes about 6 minutes to run on my core i7 iMac (2009)
+- It takes about 10 minutes to run on my core i7 iMac (2009) 
 - it gets slower towards the end because the files are bigger
-- The MongoDB database ends up around 2Gb in size so make sure you have space
+- The MongoDB database ends up around 6Gb in size, 
+so make sure you have space (it was 2Gb before the FLickr image URLs were added)
 - I ended up with 1019206 total items in the collection
 - There are 31183 unique book identifiers
 

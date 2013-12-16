@@ -24,7 +24,14 @@ class TsvFile
     item = {}
     entries = line.chomp.split("\t")
     (0..entries.length()-1).each do |i|
-      item[headers[i]] = entries[i]
+      entry = entries[i]
+      # type conversion for numbers:
+      if entry.match(/\A\d+\Z/) and !entry.start_with?('0') then
+        # horribly crude way of checking for large integer
+        entry = entry.to_i unless entry.length > 9
+      end
+
+      item[headers[i]] = entry unless entry == ""
     end
     
     item
