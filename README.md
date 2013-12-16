@@ -26,7 +26,7 @@ If you used my default index settings you can do this as follows:
 
     curl -XDELETE http://localhost:9200/bldata
 
-.. then re-run the laoder.
+.. then re-run the loader.
 
 Normally, re-running the loaders is non-invasive and should just apply any updates from
 the source files - hopefully this is a once-off.

@@ -1,0 +1,9 @@
+{
+  "name": "bldata-misc",
+  "description": "Random scripts for British Library data processing",
+  "author": "Keith Marshall <code@eleusis.co.uk>",
+  "dependencies": {
+    "mongojs": "*"
+  },
+  "engine": "node >= 0.10.0"
+}
