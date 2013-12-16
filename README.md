@@ -67,7 +67,7 @@ so make sure you have space (it was 2Gb before the FLickr image URLs were added)
 ElasticLoader.rb
 ----------------
 
-Ruby script for loading data into Elasticsearch
+Ruby script for loading data into [Elasticsearch](http://www.elasticsearch.org/).
 
 You'll need a local installation of Elasticsearch - currently doesn't support pointing
 at a remote.
@@ -80,11 +80,17 @@ To run the script, you need to pass in the directory containing the tsv files:
 
     ruby ElasticLoader.rb <path_to_tsv_files>
 
+This creates an index 'bldata' and type/collection 'image'. For basic searching I suggest
+installing the ['Browser' plugin](https://github.com/OlegKunitsyn/elasticsearch-browser).
+If you do this you can search the index at this URL:
+
+    http://localhost:9200/_plugin/browser/?database=bldata&table=image
+
 ### Metrics:
-- It takes a lot longer to run than the MongoDB one - around 40 minutes on my Mac.
+- It takes a lot longer to run than the MongoDB one - around 40 minutes on my Mac (the
+load time didn't change when more fields were added to the source data)
 - This is a lot of data, you might need to boost your elasticsearch heap (I did!) - if 
 you get a timeout error, this is likely to be the problem.
-- strangely I've ended up with 1017305 entries in Elasticsearch.. must have missed some.
-- My Elasticsearch data directory for this content is about 430Mb in size
+- My Elasticsearch data directory for this content is about 800Mb in size
 
 
