@@ -10,6 +10,25 @@ To get into the client and start using the database:
     use bldata
  
 
+Aggregated image counts by date
+-------------------------------
+
+One of the first things I did was find out how many images there were for each year.
+
+I created a new collection datecounts in MongoDB like this:
+
+    db.datecount.insert(db.images.group({key: {"date": 1}, reduce: function(curr, result) { result.total++;}, initial: { total: 0 }}))
+    
+... then used Node.js to run the date-histo.js script in this directory to export the
+results. It outputs to stdout, so just redirect to a file, e.g. :
+
+    node date-histo.js > date_histo.csv
+    
+Oh, you'll need to install the Node.js dependencies first:
+
+    npm install
+  
+
 Pixel Area
 ----------
 
