@@ -70,4 +70,8 @@ To create a new collection of volumes, we do this in the mongo shell:
 I don't know how this list was created and how they defined a unique book - it's possible
 this data comes from an external source and has books with no images?]
 
+If you really don't care about volumes and just want unique books, that's easy enough:
+
+    db.books.insert(db.images.aggregate({$group: { _id: "$book_identifier", title: {$min: "$title"}, first_author: {$min: "$first_author"}, date: {$min: "$date"}, pubplace: {$min: "$pubplace"}, publisher: {$min: "$publisher"}, BL_DLS_ID: {$min: "$BL_DLS_ID"}, ARK_id_of_book: {$min: "$ARK_id_of_book"}}}).result)
+
 
