@@ -1,7 +1,5 @@
 // db.pubplaces.find().sort({"total":-1}).limit(20)
 
-// quickly process mongo dates into something I can load into Google Charts (or Excel)
-
 var databaseURI = "localhost:27017/bldata";
 var collections = ["pubplaces"];
 var db = require("mongojs").connect(databaseURI, collections);
