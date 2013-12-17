@@ -37,8 +37,8 @@ If you want just a few fields, e.g. just title, in the above query, do this:
  
      db.areas.find().sort({'area': 1}).limit(5).map(function(area) { return db.images.findOne({'_id': area._id}, {'title':1}) })
  
- Place of Publication
- --------------------
+Place of Publication
+--------------------
  
  I created a collection with the unique publication place entries, along with totals:
  
