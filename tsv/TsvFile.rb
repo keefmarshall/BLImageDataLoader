@@ -5,7 +5,7 @@
 require 'json'
 
 class TsvFile
-  attr_accessor :filename
+  attr_accessor :filename, :string_fields
   
   def initialize filename
     @filename = filename
@@ -26,9 +26,8 @@ class TsvFile
     (0..entries.length()-1).each do |i|
       entry = entries[i]
       # type conversion for numbers:
-      if entry.match(/\A\d+\Z/) and !entry.start_with?('0') then
-        # horribly crude way of checking for large integer
-        entry = entry.to_i unless entry.length > 9
+      if entry.match(/\A\d+\Z/) and !string_fields.include?(headers[i]) then
+        entry = entry.to_i 
       end
 
       item[headers[i]] = entry unless entry == ""

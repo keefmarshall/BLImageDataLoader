@@ -9,6 +9,7 @@ class BLImageTsvFile < TsvFile
   def initialize filename
     super
     @type = extract_type_from_filename
+    @string_fields = ['flickr_id', 'volume', 'page', 'book_identifier']
   end
   
   # override super class
