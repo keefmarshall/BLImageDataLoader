@@ -24,7 +24,7 @@ fs.readFile(file, 'utf8', function (err, data) {
 		db.bookmeta.update({"_id" : meta._id}, meta, {"upsert" : true}, function() { waitingCount--;});
 	}
 	
-	// give save thread a chance to finish by waiting a second
+	// wait for all the updates to finish (they'll be happening asynchronously!)
 	console.log("Waiting to finish..");
 	waitForFinish();
 });
